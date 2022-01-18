@@ -1,0 +1,24 @@
+{
+  "name": "nasaapi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alec74/NasaApi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alec74/NasaApi/issues"
+  },
+  "homepage": "https://github.com/Alec74/NasaApi#readme",
+  "dependencies": {
+    "create-react-app": "^1.2.1",
+    "react": "^17.0.2"
+  }
+}
