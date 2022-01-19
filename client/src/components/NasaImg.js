@@ -5,11 +5,11 @@ const NasaImg = ({ nasa }) => {
 
   
 
-    console.log(nasa);
+    // console.log(nasa);
 
 
 
-    const pic = nasa.links[0].href
+  const pic = nasa.links[0].href
 
 return (
     <div className="column is-12-mobile is-3-desktop is-4-tablet is-one-fifth-fullhd">

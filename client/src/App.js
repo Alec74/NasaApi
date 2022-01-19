@@ -68,10 +68,10 @@ function App() {
       type: "SEARCH_NASA_REQUEST"
     });
 
-    fetch(`https://images-api.nasa.gov/search?title=${searchValue}&media_type=image`)
+    fetch(`https://images-api.nasa.gov/search?q=${searchValue}&media_type=image`)
       .then(response => response.json())
       .then(jsonResponse => {
-        if (jsonResponse.Response === "True") {
+        if (jsonResponse) {
           dispatch({
             type: "SEARCH_NASA_SUCCESS",
             payload: jsonResponse.collection.items
@@ -83,6 +83,7 @@ function App() {
           });
         }
       });
+
   };
 
 
@@ -92,25 +93,15 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <Search search={search} />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search search={search}></Search>
 
+      {num > 0 ? (
+        <p className="App-intro">Displaying Search Results:</p>
+      ) : (<p className="App-intro">Welcome to the Movie Search App! Click a poster to view more details.</p>)
+      }
       <div className="nasa">
         <div>
-          {/* <span>{console.log(nasa)}</span> */}
+          {/* <span>{console.log(search)}</span> */}
           
           {loading && !errorMessage ? (
             <span>loading... </span>
@@ -118,7 +109,7 @@ function App() {
             <div className="errorMessage">{errorMessage}</div>
           ) : (
             nasa.map((nasaI, index) => (
-              <NasaImg key={`${index}-${nasaI.Title}`} nasa={nasaI} />
+              <NasaImg key={`${index}-${nasaI.data[0].title}`} nasa={nasaI} />
             ))
           )}
         </div>
