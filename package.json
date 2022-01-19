@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cd movies && npm start",
-    "install": "cd movies && npm i"
+    "start": "cd client && npm start",
+    "install": "cd client && npm i"
   },
   "repository": {
     "type": "git",
