@@ -23,27 +23,27 @@ const NasaImg = ({ nasa }) => {
   )
   let description = nasa.data[0].description != nasa.data[0].title ? (nasa.data[0].description) : (null)
 
-  // console.log(description)
+  let location = nasa.data[0].location != undefined ? (nasa.data[0].location) : (undefined)
+
+  let center = nasa.data[0].center
+  // console.log(nasa.data[0].center)
 
   const pic = nasa.links[0].href
 
   return (
     <div className="column is-12-mobile is-4-desktop is-4-tablet is-one-fifth-fullhd">
       <div className="nasa" className="card">
-        {/* <h2 >{nasa.Title}</h2> */}
         <div className="card-header">
           <h3 className="card-header-title">
             <p >
               {nasa.data[0].title}
             </p>
-            {/* <p>{date}</p> */}
           </h3>
           <h4 className="card-header-title">
             {date}
           </h4>
         </div>
         <div className="card-image click">
-          {/* <form className="js-modal-trigger" onClick={handleToggle} data-target="modal"> */}
           <figure className="image is-2by2">
             <a href={pic}>
               <img
@@ -53,7 +53,23 @@ const NasaImg = ({ nasa }) => {
               />
             </a>
           </figure>
-          {/* </form> */}
+        </div>
+        <div className="card-content">
+          {location != undefined ? (
+            <>
+            <h4><strong>Photograph Location:</strong> <span>{location}</span></h4>
+            </>
+          ) :
+          (
+            <></>
+          )}
+          {center != undefined ? (
+            <>
+            <h4>Discovered by <span>{center}</span></h4>
+            </>
+          ) : (
+            <></>
+          )}
         </div>
         <div className="text content has-text-justified">
           {description != null ? (
@@ -69,9 +85,7 @@ const NasaImg = ({ nasa }) => {
             )}
         </div>
         <button className="is-primary is-outlined button far fa-star" onClick={handleClick}></button>
-
       </div>
-
     </div>
   );
 };
