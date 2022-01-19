@@ -1,13 +1,14 @@
 import logo from './logo.svg';
 import React, { useReducer, useEffect } from "react";
 import Search from "./components/Search";
+import Header from "./components/Header";
 import NasaImg from "./components/NasaImg"
 import './App.css';
 
 const apiKey = 'ihKvhJM6OOovOrZzVhz4r8IAu2PG6KAavZjp06Lh';
 
 
-const NASA_SEARCH = `https://images-api.nasa.gov/search?q=moon&media_type=image`
+const NASA_SEARCH = `https://images-api.nasa.gov/search?q=galaxy&media_type=image`
 
 
 const initialState = {
@@ -93,14 +94,16 @@ function App() {
 
   return (
     <div className="App">
+      <Header text="Image Search" />
+      <br></br>
       <Search search={search}></Search>
-
       {num > 0 ? (
         <p className="App-intro">Displaying Search Results:</p>
-      ) : (<p className="App-intro">Welcome to the Movie Search App! Click a poster to view more details.</p>)
+      ) : (<p className="App-intro">Welcome to a NASA Image Search App! Click an image to open a it in a new tab.</p>)
       }
+      <br></br>
       <div className="nasa">
-        <div>
+      <div className="columns is-mobile is-multiline is-centered">
           {/* <span>{console.log(search)}</span> */}
           
           {loading && !errorMessage ? (
