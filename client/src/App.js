@@ -99,7 +99,7 @@ function App() {
       <Search search={search}></Search>
       {num > 0 ? (
         <p className="App-intro">Displaying Search Results:</p>
-      ) : (<p className="App-intro">Welcome to a NASA Image Search App! Click an image to open a it in a new tab.</p>)
+      ) : (<p className="App-intro">Welcome to the NASA Image Search App! Click an image to open it in a new tab.</p>)
       }
       <br></br>
       <div className="nasa">
