@@ -57,15 +57,15 @@ const NasaImg = ({ nasa }) => {
         <div className="card-content">
           {location != undefined ? (
             <>
-            <h4><strong>Photograph Location:</strong> <span>{location}</span></h4>
+              <h4><strong>Photograph Location:</strong> <span>{location}</span></h4>
             </>
           ) :
-          (
-            <></>
-          )}
+            (
+              <></>
+            )}
           {center != undefined ? (
             <>
-            <h4>Discovered by <span>{center}</span></h4>
+              <h4>Discovered by <span>{center}</span></h4>
             </>
           ) : (
             <></>
@@ -84,8 +84,12 @@ const NasaImg = ({ nasa }) => {
               </br>
             )}
         </div>
-        <button className="is-primary is-outlined button far fa-star" onClick={handleClick}></button>
+        <div className="card-content like-btn">
+          <button className="is-primary is-outlined button far fa-star" onClick={handleClick}></button>
+        </div>
       </div>
+
+
     </div>
   );
 };
